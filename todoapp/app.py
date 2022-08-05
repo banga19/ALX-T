@@ -15,17 +15,17 @@ db = SQLAlchemy(app)
 ## below is the migrations section that is an instance of the Migrate Class 
 # It connects both our app and db 
 
-migrate = Migrate(app, db) 
+migrate = Migrate(app, db)
 
 class Todo(db.Model):
     __tablename__ = 'todos'
-    id = db.column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(), nullable=False)
 
     def __repr__(self):
         return f'< Todo {self.id}, {self.description}>'
 
-db.create_all()
+#db.create_all()
 
 
 # FLASK-SETUP This code should be at the bottom of all your files.
