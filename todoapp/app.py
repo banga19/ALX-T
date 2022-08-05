@@ -7,6 +7,9 @@ from flask_migrate import Migrate
 ## setting up the DATABASE SERVER connection
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://banga:banga123@localhost:5432/todoapp'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
 db = SQLAlchemy(app)
 
 ## below is the migrations section that is an instance of the Migrate Class 
@@ -15,6 +18,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db) 
 
 class Todo(db.Model):
+    __tablename__ = 'todos'
     id = db.column(db.Integer, primary_key=True)
     description = db.Column(db.String(), nullable=False)
 
