@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 
 ## setting up the DATABASE SERVER connection
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://banga:banga123@localhost:5432/todoapp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://banga:banga123@localhost:5432/todoapp'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
